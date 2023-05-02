@@ -37,8 +37,6 @@ class CreateDatabase extends Command
             return $this->error("Database $databaseName not created:" . $validator->errors()->first('name'));
         }
 
-        // config(['database.connections.' . config('database.default') . '.database' => null]);
-
         DB::statement('CREATE DATABASE IF NOT EXISTS ' . $databaseName);
 
         config(['database.connections.' . config('database.default') . '.database' => $databaseName]);
