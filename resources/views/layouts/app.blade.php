@@ -46,20 +46,14 @@
                                 </ul>
                             </li>
 
-                            {{-- <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ 'statistics.index' }}"
-                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    v-pre>
-                                    {{ __('Statistics') }}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Statistic
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('statistics.index') }}">
-                                        {{ __('List') }}
-                                    </a>
-                                </div>
-                            </li> --}}
-
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                                    <li><a class="dropdown-item" href="{{ route('statistics.index') }}">All Statistics</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     @endauth
 
