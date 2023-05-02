@@ -147,7 +147,8 @@ return [
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
-    |--------------------------------------------------------------------------
+    |        App\Providers\RepositoryServiceProvider::class,
+--------------------------------------------------------------------------
     |
     | The service providers listed here will be automatically loaded on the
     | request to your application. Feel free to add your own services to
@@ -168,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
     ])->toArray(),
 
     /*
