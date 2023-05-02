@@ -11,7 +11,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Admin Name</th>
-                    <th scope="col">User Assigend to</th>
+                    <th scope="col">Assigend Name</th>
                 </tr>
             </thead>
             <tbody>
