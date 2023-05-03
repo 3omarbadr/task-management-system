@@ -5,6 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h4>Create New Task</h4>
+            <div class="form-group my-2">
+                <a href="{{route('tasks.index')}}" class="btn btn-primary">Back</a>
+            </div>
             <form method="POST" action="{{ route('tasks.store') }}">
                 @csrf
                 <div class="form-group">
