@@ -13,7 +13,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class TaskTest extends TestCase
 {
-    use RefreshDatabase, WithoutMiddleware;
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      */
@@ -71,7 +71,7 @@ class TaskTest extends TestCase
         $this->actingAs($admin);
         $response = $this->get('tasks');
         // Assert
-        
+
         $response->assertSee('Tasks');
         $response->assertStatus(200);
     }
