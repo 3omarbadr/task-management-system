@@ -23,11 +23,11 @@ class StatisticTest extends TestCase
         ]);
 
         // Act
-        $this->actingAs($admin)
-            ->get('/statistics')
+        $this->actingAs($admin);
+        $response = $this->get('statistics');
 
-            // Assert
-            ->assertSee('Statistics')
-            ->assertStatus(200);
+        // Assert
+        $response->assertSee('Statistics');
+        $response->assertStatus(200);
     }
 }

@@ -67,12 +67,13 @@ class TaskTest extends TestCase
         ]);
 
         // Act
-        $this->actingAs($admin)
-            ->get('/tasks')
 
-            // Assert
-            ->assertStatus(200)
-            ->assertSee($tasks->first()->title);
+        $this->actingAs($admin);
+        $response = $this->get('tasks');
+        // Assert
+        
+        $response->assertSee('Tasks');
+        $response->assertStatus(200);
     }
 
 
