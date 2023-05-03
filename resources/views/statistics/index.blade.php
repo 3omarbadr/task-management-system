@@ -4,6 +4,9 @@
 <div class="container mt-5 d-flex justify-content-center align-items-center">
     <div class="col-md-6">
         <h4>Statistics</h4>
+        <div class="form-group my-2">
+            <a href="{{route('home')}}" class="btn btn-primary">Back</a>
+        </div>
         <table class="table">
             <thead class="bg-dark text-white">
                 <tr>
