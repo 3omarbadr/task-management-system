@@ -19,10 +19,10 @@ use App\Http\Controllers\StatisticController;
 
 Auth::routes(['register' => false]);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::resource('/tasks', TaskController::class)->only(['index', 'create', 'store']);
-Route::resource('/statistics', StatisticController::class)->only('index');
-
-
+Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/tasks', TaskController::class)->only(['index', 'create', 'store']);
+    Route::resource('/statistics', StatisticController::class)->only('index');
+});
