@@ -27,7 +27,7 @@ class StatisticTest extends TestCase
             ->get('/statistics')
 
             // Assert
-            ->assertStatus(200)
-            ->assertSee('/statistics');
+            ->assertSee('Statistics')
+            ->assertStatus(200);
     }
 }
