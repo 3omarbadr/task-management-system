@@ -24,7 +24,7 @@ class StatisticTest extends TestCase
 
         // Act
         $this->actingAs($admin)
-            ->get('/tasks')
+            ->get('/statistics')
 
             // Assert
             ->assertStatus(200)
