@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jobs\UpdateStatisticsJob;
 use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\SQL\TaskRepository;
@@ -31,7 +32,7 @@ class TaskController extends Controller
     public function store(TaskRequest $request)
     {
         $this->taskRepository->store($request->validated());
-
-        return to_route('tasks.index');
+        UpdateStatisticsJob::dispatch($request->validated()['assigned_to_id']);
+        return redirect()->route('tasks.index');
     }
 }

@@ -25,6 +25,11 @@ class UserRepository extends AbstractModelRepository implements IUserRepository
 
     public function users(array $attributes = ['*'])
     {
-        return $this->model->user()->get($attributes);
+        return cache()->remember(
+            'users',
+            86400,
+            fn () =>
+            User::where('type', '=', User::USER)->get($attributes)
+        );
     }
 }
