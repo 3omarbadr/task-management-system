@@ -22,7 +22,7 @@ abstract class AbstractModelRepository implements IModelRepository
         return $this->model->create($data);
     }
 
-    public function find(int $id): Collection
+    public function find(int $id): Model
     {
         return $this->model->findOrFail($id);
     }

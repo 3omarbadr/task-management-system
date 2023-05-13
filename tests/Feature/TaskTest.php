@@ -7,13 +7,17 @@ use App\Models\Task;
 use App\Models\User;
 use App\Jobs\UpdateStatisticsJob;
 use Illuminate\Support\Facades\Queue;
+use App\Repositories\SQL\TaskRepository;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class TaskTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithoutMiddleware;
+
+
     /**
      * A basic feature test example.
      */
@@ -51,36 +55,29 @@ class TaskTest extends TestCase
         $response->assertStatus(302);
     }
 
-
     /**
      * A basic feature test example.
      */
-    public function test_tasks_list_page_show_tasks_correctly(): void
+    public function test_tasks_list_page_show_tasks_correctly()
     {
         // Arrange
         $admin = User::factory()->create([
             'type' => User::ADMIN,
         ]);
 
-        $tasks = Task::factory(10)->create([
-            'assigned_by_id' => $admin->id,
-        ]);
-
         // Act
-
         $this->actingAs($admin);
         $response = $this->get('tasks');
-        // Assert
 
+        // Assert
         $response->assertSee('Tasks');
         $response->assertStatus(200);
     }
 
-
     /**
      * A basic feature test example.
      */
-    public function test_update_statistics__job_when_create_new_task(): void
+    public function test_update_statistics_job_when_create_new_task(): void
     {
         // Arrange
         $user = User::factory()->create(['type' => USER::USER]);

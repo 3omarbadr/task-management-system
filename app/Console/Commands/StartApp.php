@@ -29,13 +29,12 @@ class StartApp extends Command
     {
             $commands = [
                 'cp .env.example .env',
-                'php artisan key:generate',
                 'composer install',
                 'npm install',
                 'npm run build',
-                'php artisan config:cache',
-                'php artisan cache:clear',
                 'php artisan optimize:clear',
+                'php artisan key:generate',
+                'php artisan config:cache',
                 'php artisan db:create task_management_system',
                 'php artisan migrate:fresh --seed',
                 'php artisan serve',
