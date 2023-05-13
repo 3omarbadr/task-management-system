@@ -16,4 +16,11 @@ class StatisticRepository extends AbstractModelRepository implements IStatisticR
     {
         parent::__construct($model);
     }
+
+    public function topStatistics(int $number)
+    {
+        return $this->model->orderByDesc('task_count')
+            ->limit($number)
+            ->get();
+    }
 }

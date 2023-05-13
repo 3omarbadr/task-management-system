@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use App\Jobs\UpdateStatisticsJob;
 use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use App\Repositories\SQL\TaskRepository;
 use App\Repositories\SQL\UserRepository;
+use App\Repositories\Contracts\ITaskRepository;
+use App\Repositories\Contracts\IUserRepository;
 
 class TaskController extends Controller
 {
-    public function __construct(protected TaskRepository $taskRepository, protected UserRepository $userRepository)
+    public function __construct(protected ITaskRepository $taskRepository, protected IUserRepository $userRepository)
     {
     }
 
@@ -23,6 +26,8 @@ class TaskController extends Controller
 
     public function create()
     {
+        // $result = Cache::get('users');
+        // dd($result);
         $users  = $this->userRepository->users(['id', 'name']);
         $admins = $this->userRepository->admins(['id', 'name']);
 
