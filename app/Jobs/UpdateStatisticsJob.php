@@ -28,7 +28,7 @@ class UpdateStatisticsJob implements ShouldQueue
      */
     public function handle(): void
     {
-        Statistic::updateOrCreate([
+        $statistic = Statistic::firstOrCreate([
             'user_id' => $this->id,
         ], [
             'task_count' => DB::raw('task_count + 1'),
