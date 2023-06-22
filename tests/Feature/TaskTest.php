@@ -91,9 +91,9 @@ class TaskTest extends TestCase
         // Assert
 
         //1
-        $response->assertStatus(302);
+        // $response->assertStatus(302);
 
         //2
-        // Queue::assertPushed(UpdateStatisticsJob::class);
+        Queue::assertPushed(UpdateStatisticsJob::class);
     }
 }
